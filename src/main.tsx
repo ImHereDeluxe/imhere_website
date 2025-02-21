@@ -5,10 +5,6 @@ import { store } from "./entities/store";
 import './index.css'
 import App from './App.tsx'
 
-if (window.location.pathname === "/") {
-    window.location.replace("/auth");
-}
-
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
       <Provider store={store}>

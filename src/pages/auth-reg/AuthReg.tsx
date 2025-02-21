@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../entities/store";
 import { setUser, clearUser } from "../../entities/user/model/UserSlice";
 import {setExample, clearExample} from "../../entities/example/model/ExampleSlice"
-import InputField, {IInputField} from "../../shared/ui/InputField/InputField.tsx";
+import InputField, {IInputField} from "../../shared/ui/input-field/InputField";
+import {LoginButton} from "../../features/login-button";
+import RegButton from "../../features/reg-button/ui/RegButton.tsx";
 
-function Home()
+function AuthReg()
 {
     const input1 = useRef<IInputField>(null);
     const input2 = useRef<IInputField>(null);
@@ -50,18 +52,21 @@ function Home()
 
                 <InputField ref={input1} placeholder="Вводи, дикле"/>
                 <InputField ref={input2} placeholder="Вводи, дикле"/>
-                <button onClick={handleGetValue}>Получить значение</button>
-                {/*<InputField value={input2} onChange={handleInput2Change}></InputField>*/}
+                <LoginButton input1={input1} input2={input2} />
+                <RegButton />
 
-                <button onClick={() => {
-                    dispatch(clearUser());
-                    dispatch(clearExample())
-                }}>Удалить пользователя
-                </button>
-                <button onClick={handleSetUser}>Создать пользователя</button>
+                {/*<button onClick={handleGetValue}>Получить значение</button>*/}
+                {/*/!*<InputField value={input2} onChange={handleInput2Change}></InputField>*!/*/}
+
+                {/*<button onClick={() => {*/}
+                {/*    dispatch(clearUser());*/}
+                {/*    dispatch(clearExample())*/}
+                {/*}}>Удалить пользователя*/}
+                {/*</button>*/}
+                {/*<button onClick={handleSetUser}>Создать пользователя</button>*/}
             </div>
         </>
     );
 }
 
-export default Home;
+export default AuthReg;
