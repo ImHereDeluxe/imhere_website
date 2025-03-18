@@ -1,1 +1,0 @@
-export {default as RegButton} from "./ui/RegButton";

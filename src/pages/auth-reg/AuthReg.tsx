@@ -1,40 +1,41 @@
 // src/App.tsx
 import { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {// useDispatch,
+    useSelector } from "react-redux";
 import { RootState } from "../../entities/store";
-import { setUser, clearUser } from "../../entities/user/model/UserSlice";
-import {setExample, clearExample} from "../../entities/example/model/ExampleSlice"
+// import { setUser } from "../../entities/user/model/UserSlice";
+// import {setExample} from "../../entities/example/model/ExampleSlice"
 import InputField, {IInputField} from "../../shared/features/input-field/InputField";
-import {LoginButton} from "../../features/login-button";
-import RegButton from "../../features/reg-button/ui/RegButton.tsx";
+import {LoginButton} from "./elements/features/login-button";
+import RegButton from "./elements/features/reg-button/ui/RegButton.tsx";
 
 function AuthReg()
 {
     const input1 = useRef<IInputField>(null);
     const input2 = useRef<IInputField>(null);
 
-    const dispatch = useDispatch();
+ //   const dispatch = useDispatch();
     const user = useSelector((state: RootState) => state.user.value);
     const example = useSelector((state: RootState) => state.example.value);
 
-    const handleSetUser = () => {
-        dispatch(
-            setUser({
-                id: "1",
-                name: "Иван",
-                description: "Разработчик",
-            })
-        );
-
-        dispatch(setExample("parabala"));
-    };
-
-    const handleGetValue = () => {
-        if (input1.current) {
-            console.log(`Текущее значение: ${input1.current.getValue()}`);
-            input1.current.setPlaceholder("сам такой");
-        }
-    };
+    // const handleSetUser = () => {
+    //     dispatch(
+    //         setUser({
+    //             id: "1",
+    //             name: "Иван",
+    //             description: "Разработчик",
+    //         })
+    //     );
+    //
+    //     dispatch(setExample("parabala"));
+    // };
+    //
+    // const handleGetValue = () => {
+    //     if (input1.current) {
+    //         console.log(`Текущее значение: ${input1.current.getValue()}`);
+    //         input1.current.setPlaceholder("сам такой");
+    //     }
+    // };
 
     return (
         <>

@@ -1,7 +1,7 @@
 // import "./LoginButton.css";
 
 import {useNavigate} from "react-router-dom";
-import {IInputField} from "../../../shared/features/input-field/InputField.tsx";
+import {IInputField} from "../../../../../../shared/features/input-field/InputField.tsx";
 
 
 interface LoginButtonProps {
