@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../entities/store";
 import { setUser, clearUser } from "../../entities/user/model/UserSlice";
 import {setExample, clearExample} from "../../entities/example/model/ExampleSlice"
-import InputField, {IInputField} from "../../shared/ui/input-field/InputField";
+import InputField, {IInputField} from "../../shared/features/input-field/InputField";
 import {LoginButton} from "../../features/login-button";
 import RegButton from "../../features/reg-button/ui/RegButton.tsx";
 
@@ -39,6 +39,7 @@ function AuthReg()
     return (
         <>
             <h1>Vite + React + Redux</h1>
+
             <div className="card">
                 {user && example && (
                     <div>
@@ -52,8 +53,8 @@ function AuthReg()
 
                 <InputField ref={input1} placeholder="Вводи, дикле"/>
                 <InputField ref={input2} placeholder="Вводи, дикле"/>
-                <LoginButton input1={input1} input2={input2} />
-                <RegButton />
+                <LoginButton input1={input1} input2={input2}/>
+                <RegButton/>
 
                 {/*<button onClick={handleGetValue}>Получить значение</button>*/}
                 {/*/!*<InputField value={input2} onChange={handleInput2Change}></InputField>*!/*/}

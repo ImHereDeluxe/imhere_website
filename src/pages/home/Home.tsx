@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 
-function AuthReg() {
+function Home()
+{
     return (
         <div>
             <h1>Страница авторизации / регистрации</h1>
@@ -10,4 +11,4 @@ function AuthReg() {
     );
 }
 
-export default AuthReg;
+export default Home;
