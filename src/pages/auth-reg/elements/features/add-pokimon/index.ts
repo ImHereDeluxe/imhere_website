@@ -1,0 +1,1 @@
+export {default as AddPokimon } from "./ui/AddPokimon.tsx";

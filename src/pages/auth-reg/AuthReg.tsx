@@ -1,6 +1,6 @@
 // src/App.tsx
-import { useRef } from "react";
-import {// useDispatch,
+import { useRef, useEffect } from "react";
+import { useDispatch,
     useSelector } from "react-redux";
 import { RootState } from "../../entities/store";
 // import { setUser } from "../../entities/user/model/UserSlice";
@@ -8,15 +8,31 @@ import { RootState } from "../../entities/store";
 import InputField, {IInputField} from "../../shared/features/input-field/InputField";
 import {LoginButton} from "./elements/features/login-button";
 import RegButton from "./elements/features/reg-button/ui/RegButton.tsx";
+import {AddPokimon} from "./elements/features/add-pokimon";
+import {setPokimon} from "../../entities/pokimon/model/PokimonSlice.ts";
+import {addPokimon, getPokimon} from "../../entities/pokimon/api/PokimonApi.ts";
 
 function AuthReg()
 {
     const input1 = useRef<IInputField>(null);
     const input2 = useRef<IInputField>(null);
 
- //   const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const user = useSelector((state: RootState) => state.user.value);
-    const example = useSelector((state: RootState) => state.example.value);
+    const pokimon = useSelector((state: RootState) => state.pokimon.value);
+    // const example = useSelector((state: RootState) => state.example.value);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getPokimon();
+            if (data && data.Hello_world) {
+                dispatch(setPokimon(data.Hello_world));
+            }
+        };
+
+        fetchData();
+    }, [dispatch]);
 
     // const handleSetUser = () => {
     //     dispatch(
@@ -39,23 +55,28 @@ function AuthReg()
 
     return (
         <>
-            <h1>Vite + React + Redux</h1>
-
             <div className="card">
-                {user && example && (
-                    <div>
-                        <p>ID: {user.id}</p>
-                        <p>Имя: {user.name}</p>
-                        <p>Описание: {user.description}</p>
-                        <p>точность: {example.value}</p>
 
-                    </div>
-                )}
+                <div>
+                    <h1>Собрано покемонов</h1>
+                    {pokimon &&(<p> {pokimon.value}</p>)}
+                    <AddPokimon/>
+                </div>
 
-                <InputField ref={input1} placeholder="Вводи, дикле"/>
-                <InputField ref={input2} placeholder="Вводи, дикле"/>
-                <LoginButton input1={input1} input2={input2}/>
-                <RegButton/>
+                {/*{user && (*/}
+                {/*    <div>*/}
+                {/*        <p>ID: {user.id}</p>*/}
+                {/*        <p>Имя: {user.name}</p>*/}
+                {/*        <p>Описание: {user.description}</p>*/}
+                {/*        /!*<p>точность: {example.value}</p>*!/*/}
+
+                {/*    </div>*/}
+                {/*)}*/}
+
+                {/*<InputField ref={input1} placeholder="Вводи, дикле"/>*/}
+                {/*<InputField ref={input2} placeholder="Вводи, дикле"/>*/}
+                {/*<LoginButton input1={input1} input2={input2}/>*/}
+                {/*<RegButton/>*/}
 
                 {/*<button onClick={handleGetValue}>Получить значение</button>*/}
                 {/*/!*<InputField value={input2} onChange={handleInput2Change}></InputField>*!/*/}
