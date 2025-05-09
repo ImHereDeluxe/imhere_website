@@ -2,15 +2,15 @@
 import { useRef,
     useEffect } from "react";
 import { useDispatch,
-    useSelector } from "react-redux";
-import { RootState } from "../../entities/store";
+ } from "react-redux";
+//import { RootState } from "../../entities/store";
 // import { setUser } from "../../entities/user/model/UserSlice";
 // import {setExample} from "../../entities/example/model/ExampleSlice"
 import InputField, {IInputField} from "../../shared/features/input-field/InputField";
 import {LoginButton} from "./elements/features/login-button";
 import RegButton from "./elements/features/reg-button/ui/RegButton.tsx";
 import {AddPokimon} from "./elements/features/add-pokimon";
-import {getPokimon} from "../../shared/selectors/PokimonSelector.ts";
+//import {getPokimon} from "../../shared/selectors/PokimonSelector.ts";
 import {getAuthRegState} from "../../states/AuthRegState.ts";
 //import {
     //addPokimon,
