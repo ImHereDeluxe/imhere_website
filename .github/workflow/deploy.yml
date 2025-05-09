@@ -19,4 +19,4 @@ jobs:
           script: |
             cd /root/imhere/imhere_website
             git pull
-            docker compose -f docker-compose-frontend.yml up --build -d
+            docker compose -f docker-compose-frontend.yml up --build -d 
