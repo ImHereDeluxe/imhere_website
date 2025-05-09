@@ -1,37 +1,40 @@
 // src/App.tsx
-import { //useRef,
+import { useRef,
     useEffect } from "react";
 import { useDispatch,
     useSelector } from "react-redux";
 import { RootState } from "../../entities/store";
 // import { setUser } from "../../entities/user/model/UserSlice";
 // import {setExample} from "../../entities/example/model/ExampleSlice"
-// import InputField, {IInputField} from "../../shared/features/input-field/InputField";
-// import {LoginButton} from "./elements/features/login-button";
-// import RegButton from "./elements/features/reg-button/ui/RegButton.tsx";
+import InputField, {IInputField} from "../../shared/features/input-field/InputField";
+import {LoginButton} from "./elements/features/login-button";
+import RegButton from "./elements/features/reg-button/ui/RegButton.tsx";
 import {AddPokimon} from "./elements/features/add-pokimon";
-import {setPokimon} from "../../entities/pokimon/model/PokimonSlice.ts";
-import {
+import {getPokimon} from "../../shared/selectors/PokimonSelector.ts";
+import {getAuthRegState} from "../../states/AuthRegState.ts";
+//import {
     //addPokimon,
-    getPokimon} from "../../entities/pokimon/api/PokimonApi.ts";
+   // updatePokimon} from "../../entities/pokimon/api/PokimonApi.ts";
 
 function AuthReg()
 {
-    //const input1 = useRef<IInputField>(null);
-   // const input2 = useRef<IInputField>(null);
+    const input1 = useRef<IInputField>(null);
+   const input2 = useRef<IInputField>(null);
 
     const dispatch = useDispatch();
-    //const user = useSelector((state: RootState) => state.user.value);
-    const pokimon = useSelector((state: RootState) => state.pokimon.value);
-    // const example = useSelector((state: RootState) => state.example.value);
+    const authRegState=getAuthRegState();
 
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getPokimon();
-            if (data && data.Hello_world) {
-                dispatch(setPokimon(data.Hello_world));
-            }
+
+
+
+           // void updatePokimon(dispatch);
+
+            // if (data && data.Hello_world) {
+            //     dispatch(setPokimon(data.Hello_world));
+            // }
         };
 
         fetchData();
@@ -61,8 +64,10 @@ function AuthReg()
             <div className="card">
 
                 <div>
-                    <h1>Собрано апойгенных покемонов</h1>
-                    {pokimon &&(<p> {pokimon.value}</p>)}
+                    <h1>Собрано всего апойгенных покемонов</h1>
+                    {authRegState.pokimon &&(<p> {authRegState.pokimon.value}</p>)}
+                    {/*<h1>Собрал(а) конкретно ты(а)</h1>*/}
+                    {/*{authRegState.pokimon &&(<p> {authRegState.pokimon}</p>)}*/}
                     <AddPokimon/>
                 </div>
 
@@ -76,10 +81,10 @@ function AuthReg()
                 {/*    </div>*/}
                 {/*)}*/}
 
-                {/*<InputField ref={input1} placeholder="Вводи, дикле"/>*/}
-                {/*<InputField ref={input2} placeholder="Вводи, дикле"/>*/}
-                {/*<LoginButton input1={input1} input2={input2}/>*/}
-                {/*<RegButton/>*/}
+                <InputField ref={input1} placeholder="Вводи, дикле"/>
+                <InputField ref={input2} placeholder="Вводи, дикле"/>
+                <LoginButton input1={input1} input2={input2}/>
+                <RegButton input1={input1} input2={input2}/>
 
                 {/*<button onClick={handleGetValue}>Получить значение</button>*/}
                 {/*/!*<InputField value={input2} onChange={handleInput2Change}></InputField>*!/*/}

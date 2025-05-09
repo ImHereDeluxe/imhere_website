@@ -1,20 +1,16 @@
 import {useDispatch} from "react-redux";
-import {setPokimon} from "../../../../../../entities/pokimon/model/PokimonSlice.ts";
-import {addPokimon, getPokimon} from "../../../../../../entities/pokimon/api/PokimonApi.ts";
+import {PokimonService} from "../../../../../../entities/pokimon/api/PokimonApi.ts";
 
 const AddPokimon = () => {
 
 
     const dispatch = useDispatch();
 
-    const handleLogin = async () => {
+    const handleLogin = () => {
 
-        await addPokimon();
+        PokimonService.addPokimon();
+        PokimonService.updatePokimon(dispatch);
 
-        const data = await getPokimon();
-        if (data && data.Hello_world) {
-            dispatch(setPokimon(data.Hello_world));
-        }
     };
 
     return (

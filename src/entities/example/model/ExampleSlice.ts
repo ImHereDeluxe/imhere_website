@@ -18,12 +18,9 @@ const slice = createSlice(
         setExample: (state, action: PayloadAction<string>) => {
             state.value = {value: action.payload};
         },
-        clearExample: (state) => {
-            state.value = null;
-        },
     },
 }
 );
 
-export const { setExample, clearExample } = slice.actions;
+export const { setExample } = slice.actions;
 export default slice.reducer;

@@ -1,43 +1,23 @@
-export const getPokimon = async () => {
-    try {
-        const response = await fetch('https://imhere.space:5680/api/auth/count/pokimon', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
+import {sendRequestToServer} from "../../../shared/api/SendRequestToServer.ts";
+import {HttpMethod} from "../../../shared/api/HttpMethod.ts";
+import {API} from "../../../shared/api/API.ts";
+import {setPokimon} from "../model/PokimonSlice.ts";
+import { Dispatch } from "redux";
+
+
+export class PokimonService {
+    static updatePokimon(dispatch: Dispatch) {
+        (async () => {
+            const data = await sendRequestToServer(API.GET_POKIMON);
+            if (data && data.Hello_world) {
+                dispatch(setPokimon(data.Hello_world));
             }
-        });
-
-        if (!response.ok) {
-            throw new Error('Could not fetch pokimon');
-        }
-
-        const data = await response.json();
-        console.log('Получен покемон:', data);
-        return data; // Тут возвращается JSON
-    } catch (error) {
-        console.error('Ошибка при получении покемона:', error);
-        return null;
+        })();
     }
-};
 
-export const addPokimon = async () => {
-    try {
-        const response = await fetch('https://imhere.space:5680/api/auth/add/pokimon', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+    static addPokimon() {
+        void sendRequestToServer(API.ADD_POKIMON, {
+            httpMethod: HttpMethod.POST,
         });
-
-        if (!response.ok) {
-            throw new Error('Could not add pokimon');
-        }
-
-        const data = await response.json();
-        console.log('Покемон успешно добавлен:', data);
-        return data; // JSON с message
-    } catch (error) {
-        console.error('Ошибка при добавлении покемона:', error);
-        return null;
     }
-};
+}
