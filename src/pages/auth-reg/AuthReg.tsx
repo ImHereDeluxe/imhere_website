@@ -61,7 +61,7 @@ function AuthReg()
             <div className="card">
 
                 <div>
-                    <h1>Собрано покемонов</h1>
+                    <h1>Собрано апойгенных 7покемонов</h1>
                     {pokimon &&(<p> {pokimon.value}</p>)}
                     <AddPokimon/>
                 </div>
