@@ -1,0 +1,22 @@
+name: Deploy frontend
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Connect to frontend server and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.FRONTEND_HOST }}
+          username: ${{ secrets.FRONTEND_HOST_USER }}
+          key: ${{ secrets.FRONTEND_SSH_KEY }}
+          script: |
+            cd /root/imhere/imhere_website
+            git pull
+            docker compose -f docker-compose-frontend.yml up --build -d
