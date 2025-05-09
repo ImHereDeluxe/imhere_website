@@ -15,7 +15,7 @@ jobs:
         with:
           host: ${{ secrets.FRONTEND_HOST }}
           username: ${{ secrets.FRONTEND_HOST_USER }}
-          key: ${{ secrets.FRONTEND_SSH_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /root/imhere/imhere_website
             git pull
