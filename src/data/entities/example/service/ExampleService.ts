@@ -5,6 +5,6 @@ import { Dispatch } from "redux";
 export class ExampleService {
     static updateExample(dispatch: Dispatch, value: string)
     {
-        dispatch(setExample(value));
+        dispatch(setExample({value:value}));
     }
 }
