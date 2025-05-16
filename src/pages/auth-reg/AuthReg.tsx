@@ -6,12 +6,14 @@ import { useDispatch,
 //import { RootState } from "../../entities/store";
 // import { setUser } from "../../entities/user/model/UserSlice";
 // import {setExample} from "../../entities/example/model/ExampleSlice"
-import InputField, {IInputField} from "../../shared/features/input-field/InputField";
+import //InputField,
+{IInputField} from "../../shared/features/input-field/InputField";
 import {LoginButton} from "./elements/features/login-button";
-import RegButton from "./elements/features/reg-button/ui/RegButton.tsx";
+//import RegButton from "./elements/features/reg-button/ui/RegButton.tsx";
 import {AddPokimon} from "./elements/features/add-pokimon";
 //import {getPokimon} from "../../shared/selectors/PokimonSelector.ts";
 import {getAuthRegState} from "../../states/AuthRegState.ts";
+//import {setPokimon} from "../../data/redux/slices/PokimonSlice.ts";
 //import {
     //addPokimon,
    // updatePokimon} from "../../entities/pokimon/api/PokimonApi.ts";
@@ -28,7 +30,7 @@ function AuthReg()
     useEffect(() => {
         const fetchData = async () => {
 
-
+            //dispatch(setPokimon({value:5}));
 
            // void updatePokimon(dispatch);
 
@@ -81,10 +83,10 @@ function AuthReg()
                 {/*    </div>*/}
                 {/*)}*/}
 
-                <InputField ref={input1} placeholder="Вводи, дикле"/>
-                <InputField ref={input2} placeholder="Вводи, дикле"/>
+                {/*<InputField ref={input1} placeholder="Вводи почту, дикле"/>*/}
+                {/*<InputField ref={input2} placeholder="Вводи пароль, дикле"/>*/}
                 <LoginButton input1={input1} input2={input2}/>
-                <RegButton input1={input1} input2={input2}/>
+                {/*<RegButton input1={input1} input2={input2}/>*/}
 
                 {/*<button onClick={handleGetValue}>Получить значение</button>*/}
                 {/*/!*<InputField value={input2} onChange={handleInput2Change}></InputField>*!/*/}

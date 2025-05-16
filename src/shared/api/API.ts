@@ -1,11 +1,12 @@
 export enum API
 {
     //Покемоны
-    GET_POKIMON = "/api/auth/count/pokimon",
-    ADD_POKIMON = "/api/auth/add/pokimon",
+    GET_POKIMON = "/auth/count/pokimon",
+    ADD_POKIMON = "/auth/add/pokimon",
+    GET_VIP_POKIMON = "/count/pokimon",
 
     //Регистрация, авторизация
-    REGISTRATION = "/api/auth/register",
-    AUTHORIZATION = "/api/auth/authenticate",
+    REGISTRATION = "/auth/register",
+    AUTHORIZATION = "/auth/authenticate",
 
 }

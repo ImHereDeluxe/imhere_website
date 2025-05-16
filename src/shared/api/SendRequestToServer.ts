@@ -5,6 +5,7 @@ interface FetcherOptions {
     httpMethod?: HttpMethod;
     body?: any;
     headers?: HeadersInit;
+    withCredentials?: boolean; // 👈 Добавлена опция
 }
 
 export const sendRequestToServer = async <T = any>(
@@ -19,6 +20,7 @@ export const sendRequestToServer = async <T = any>(
                 ...(options.headers || {}),
             },
             body: options.body ? JSON.stringify(options.body) : undefined,
+            credentials: options.withCredentials ? "include" : "same-origin", // 👈 здесь
         });
 
         if (!response.ok) {

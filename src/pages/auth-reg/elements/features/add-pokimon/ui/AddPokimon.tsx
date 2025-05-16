@@ -1,5 +1,5 @@
 import {useDispatch} from "react-redux";
-import {PokimonService} from "../../../../../../entities/pokimon/api/PokimonApi.ts";
+import {PokimonService} from "../../../../../../data/entities/pokimon/service/PokimonService.ts";
 
 const AddPokimon = () => {
 

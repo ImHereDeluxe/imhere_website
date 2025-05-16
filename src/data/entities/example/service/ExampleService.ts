@@ -1,4 +1,4 @@
-import {setExample} from "../model/ExampleSlice.ts";
+import {setExample} from "../../../redux/slices/ExampleSlice.ts";
 import { Dispatch } from "redux";
 
 

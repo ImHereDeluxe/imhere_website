@@ -1,6 +1,6 @@
 import {createValueSelector} from "../shared/selectors/GenericSelector.ts";
-import {RootState} from "../entities/store.ts";
-import {Pokimon} from "../entities/pokimon/model/Pokimon.ts";
+import {RootState} from "../data/redux/store.ts";
+import {Pokimon} from "../data/entities/pokimon/model/Pokimon.ts";
 
 interface AuthRegState {
     pokimon: Pokimon|null;

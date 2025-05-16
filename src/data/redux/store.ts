@@ -1,8 +1,8 @@
 // src/store.ts
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./user/model/UserSlice";
-import exampleSlice from "./example/model/ExampleSlice.ts";
-import pokimonSlice from "./pokimon/model/PokimonSlice.ts";
+import userReducer from "./slices/UserSlice.ts";
+import exampleSlice from "./slices/ExampleSlice.ts";
+import pokimonSlice from "./slices/PokimonSlice.ts";
 
 export const store = configureStore({
     reducer: {

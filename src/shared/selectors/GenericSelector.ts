@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import {RootState} from "../../entities/store.ts";
+import {RootState} from "../../data/redux/store.ts";
 
 export function createValueSelector<T>(
     baseSelector: (state: RootState) => any

@@ -1,7 +1,7 @@
-import {sendRequestToServer} from "../../../shared/api/SendRequestToServer.ts";
-import {HttpMethod} from "../../../shared/api/HttpMethod.ts";
-import {API} from "../../../shared/api/API.ts";
-import {setPokimon} from "../model/PokimonSlice.ts";
+import {sendRequestToServer} from "../../../../shared/api/SendRequestToServer.ts";
+import {HttpMethod} from "../../../../shared/api/HttpMethod.ts";
+import {API} from "../../../../shared/api/API.ts";
+import {setPokimon} from "../../../redux/slices/PokimonSlice.ts";
 import { Dispatch } from "redux";
 
 
@@ -10,7 +10,7 @@ export class PokimonService {
         (async () => {
             const data = await sendRequestToServer(API.GET_POKIMON);
             if (data && data.Hello_world) {
-                dispatch(setPokimon(data.Hello_world));
+                dispatch(setPokimon({value:data.Hello_world}));
             }
         })();
     }
