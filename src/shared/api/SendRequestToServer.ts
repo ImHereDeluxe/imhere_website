@@ -23,9 +23,6 @@ export const sendRequestToServer = async <T = any>(
             credentials: options.withCredentials ? "include" : "same-origin", // 👈 здесь
         });
 
-        console.log(`[FETCH] ${options.httpMethod || "GET"} ${api}`);
-        console.log("[FETCH] status:", response.status);
-
         if (!response.ok) {
             throw new Error(`Fetch error: ${response.status}`);
         }
