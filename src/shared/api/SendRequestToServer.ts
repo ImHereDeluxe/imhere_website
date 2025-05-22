@@ -32,7 +32,7 @@ export const sendRequestToServer = async <T = any>(
 
         console.log(response);
 
-        return await response.json();
+        return await data;
     } catch (error) {
         console.error("Ошибка в fetcher:", error);
         return null;
