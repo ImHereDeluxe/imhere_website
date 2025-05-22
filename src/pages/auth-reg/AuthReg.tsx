@@ -13,6 +13,8 @@ import {LoginButton} from "./elements/features/login-button";
 import {AddPokimon} from "./elements/features/add-pokimon";
 //import {getPokimon} from "../../shared/selectors/PokimonSelector.ts";
 import {getAuthRegState} from "../../states/AuthRegState.ts";
+import {MinusPokimon} from "./elements/features/minus-pokimon";
+import {PokimonService} from "../../data/entities/pokimon/service/PokimonService.ts";
 //import {setPokimon} from "../../data/redux/slices/PokimonSlice.ts";
 //import {
     //addPokimon,
@@ -37,6 +39,7 @@ function AuthReg()
             // if (data && data.Hello_world) {
             //     dispatch(setPokimon(data.Hello_world));
             // }
+            PokimonService.updatePokimon(dispatch);
         };
 
         fetchData();
@@ -71,6 +74,7 @@ function AuthReg()
                     {/*<h1>Собрал(а) конкретно ты(а)</h1>*/}
                     {/*{authRegState.pokimon &&(<p> {authRegState.pokimon}</p>)}*/}
                     <AddPokimon/>
+                    <MinusPokimon/>
                 </div>
 
                 {/*{user && (*/}

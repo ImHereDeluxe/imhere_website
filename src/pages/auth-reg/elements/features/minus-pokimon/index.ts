@@ -1,0 +1,1 @@
+export {default as MinusPokimon } from "./ui/MinusPokimon.tsx";

@@ -20,4 +20,11 @@ export class PokimonService {
             httpMethod: HttpMethod.POST,
         });
     }
+
+    static minusPokimon() {
+        void sendRequestToServer(API.MINUS_POKIMON, {
+            httpMethod: HttpMethod.POST,
+            withCredentials: true
+        });
+    }
 }
