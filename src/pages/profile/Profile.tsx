@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import {sendRequestToServer} from "../../shared/api/SendRequestToServer.ts";
 import {HttpMethod} from "../../shared/api/HttpMethod.ts";
 import {API} from "../../shared/api/API.ts";
+import {MinusPokimon} from "../auth-reg/elements/features/minus-pokimon";
 
 function Profile() {
     const [pokimons, setPokimons] = useState<string>("Загрузка...");
@@ -33,6 +34,7 @@ function Profile() {
             <h1>УСПЕШНАЯ РЕГИСТРАЦИЯ ОЧКА!</h1>
             <pre>{pokimons}</pre>
             <p>щит медуза стрит косок что плеть</p>
+            <MinusPokimon/>
             <Link to="/main">Вернуть как было, в жопе мыло</Link>
         </div>
     );
