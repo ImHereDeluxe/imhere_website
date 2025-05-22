@@ -13,4 +13,7 @@ export enum API
     //Профиль
 
     GET_PROFILE = "/profile/me",
+
+    //Поиск
+    GET_SEARCH = "/search",
 }

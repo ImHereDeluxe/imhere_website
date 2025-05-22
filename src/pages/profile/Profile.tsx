@@ -63,6 +63,7 @@ function Profile() {
             <p>щит медуза стрит косок что плеть</p>
             <MinusPokimon/>
             <Link to="/main">Вернуть как было, в жопе мыло</Link>
+            <Link to="/search">Выйти замуж. ну или зайти, тут кому удобнее</Link>
         </div>
     );
 }
