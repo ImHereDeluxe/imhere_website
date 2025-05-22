@@ -10,4 +10,7 @@ export enum API
     REGISTRATION = "/auth/register",
     AUTHORIZATION = "/auth/authenticate",
 
+    //Профиль
+
+    GET_PROFILE = "/profile/me",
 }

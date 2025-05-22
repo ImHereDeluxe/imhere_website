@@ -24,6 +24,13 @@ function Profile() {
             } else {
                 setPokimons("Не удалось загрузить покимонов 😿");
             }
+
+
+            await sendRequestToServer(API.GET_PROFILE, {
+                httpMethod: HttpMethod.GET,
+                withCredentials: true,
+            });
+
         };
 
         fetchPokimons();

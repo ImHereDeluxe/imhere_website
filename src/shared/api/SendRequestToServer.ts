@@ -27,6 +27,8 @@ export const sendRequestToServer = async <T = any>(
             throw new Error(`Fetch error: ${response.status}`);
         }
 
+        console.log(response);
+
         return await response.json();
     } catch (error) {
         console.error("Ошибка в fetcher:", error);
