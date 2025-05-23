@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {createSlice, Draft, PayloadAction} from "@reduxjs/toolkit";
 
 export function createGenericSlice<T>(name: string) {
     const initialState: { value: T | null } = {
@@ -13,9 +13,24 @@ export function createGenericSlice<T>(name: string) {
                 return { value: action.payload };
             },
             updateValue: (state, action: PayloadAction<Partial<T>>) => {
-                if (state.value) {
-                    Object.assign(state.value, action.payload);
+
+                console.log("great! i enteret")
+                if (state.value === null) {
+                    state.value = {} as Draft<T>;
                 }
+
+                console.log("cool")
+
+                // Immer понимает мутации:
+                for (const key in action.payload) {
+                    if (Object.prototype.hasOwnProperty.call(action.payload, key)) {
+                        (state.value as any)[key] = action.payload[key];
+                    }
+                }
+
+                console.log("nice ", state.value)
+
+
             },
         },
     });

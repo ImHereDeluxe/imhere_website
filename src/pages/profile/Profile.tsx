@@ -46,10 +46,15 @@ function Profile() {
         <div>
             <h1>УСПЕШНАЯ РЕГИСТРАЦИЯ ОЧКА!</h1>
 
+
+
+
             {/* 🧠 Профиль */}
             {profileState.user ? (
                 <div>
                     <h2>👤 Профиль пользователя:</h2>
+
+
 
 
                     {profileState.user.link_to_avatar ? (
@@ -57,7 +62,7 @@ function Profile() {
                             <img
                                 src={profileState.user.link_to_avatar}
                                 alt="Аватар"
-                                style={{ width: "150px", height: "150px", borderRadius: "50%", objectFit: "cover" }}
+                                style={{width: "150px", height: "150px", borderRadius: "50%", objectFit: "cover"}}
                             />
                         </div>
                     ) : (

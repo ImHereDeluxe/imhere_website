@@ -6,6 +6,8 @@ const AvatarUpload = () => {
     const dispatch = useDispatch();
     const fileInputRef = useRef<HTMLInputElement>(null);
 
+    //const profileState=getProfileState();
+
     const handleClick = () => {
         fileInputRef.current?.click(); // 👈 программно нажимаем на input
     };
@@ -13,7 +15,7 @@ const AvatarUpload = () => {
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (file) {
-            UserService.uploadAvatar(dispatch, file); // 👈 передаём файл
+            UserService.uploadAvatar(dispatch, file,); // 👈 передаём файл
         }
     };
 

@@ -22,6 +22,8 @@ export class UserService {
         })();
     }
 
+
+
     static uploadAvatar(dispatch: Dispatch, file: File) {
         (async () => {
             const formData = new FormData();
@@ -34,8 +36,25 @@ export class UserService {
                 isFormData: true,
             });
 
+           //  console.log("ПРИВЕТТТТТТ!!!!!");
+           //
+           // // const profileState=getProfileState();
+           //
+           //  dispatch(updateUser({ link_to_avatar: "https://stihi.ru/pics/2023/01/10/3831.jpg" }));
+           //
+           //  if (profileState.user && profileState.user?.link_to_avatar == "https://stihi.ru/pics/2023/01/10/3831.jpg")
+           //  {
+           //      dispatch(updateUser({ link_to_avatar: "https://i.pinimg.com/originals/7c/b9/3e/7cb93efe8db840d28e5ba38968acef6d.png" }));
+           //  }
+           //  else
+           //  {
+           //      dispatch(updateUser({ link_to_avatar: "https://stihi.ru/pics/2023/01/10/3831.jpg" }));
+           //  }
+
+
             if (result?.url) {
                 dispatch(updateUser({ link_to_avatar: result.link_to_avatar }));
+                //dispatch(updateUser({ link_to_avatar: "https://stihi.ru/pics/2023/01/10/3831.jpg" }));
             }
         })();
     }
