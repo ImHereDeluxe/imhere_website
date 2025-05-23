@@ -35,7 +35,7 @@ export class UserService {
             });
 
             if (result?.url) {
-                dispatch(updateUser({ link_to_avatar: result.url }));
+                dispatch(updateUser({ link_to_avatar: result.link_to_avatar }));
             }
         })();
     }
