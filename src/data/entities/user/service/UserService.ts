@@ -52,7 +52,7 @@ export class UserService {
            //  }
 
 
-            if (result?.url) {
+            if (result?.link_to_avatar) {
                 dispatch(updateUser({ link_to_avatar: result.link_to_avatar }));
                 //dispatch(updateUser({ link_to_avatar: "https://stihi.ru/pics/2023/01/10/3831.jpg" }));
             }
