@@ -32,6 +32,11 @@ export const sendRequestToServer = async <T = any>(
             throw new Error(`Fetch error: ${response.status}`);
         }
 
+        console.log("response.status", response.status);
+        console.log("response.headers", response.headers);
+        const text = await response.text(); // 👈 вместо .json()
+        console.log("RAW response body:", text);
+
         const data = await response.json();
         console.log("[FETCH] response body:", data);
 
