@@ -15,6 +15,7 @@ import {AddPokimon} from "./elements/features/add-pokimon";
 import {getAuthRegState} from "../../states/AuthRegState.ts";
 import {MinusPokimon} from "./elements/features/minus-pokimon";
 import {PokimonService} from "../../data/entities/pokimon/service/PokimonService.ts";
+import {AvatarUpload} from "../profile/elements/features/avatar-upload";
 //import {setPokimon} from "../../data/redux/slices/PokimonSlice.ts";
 //import {
     //addPokimon,
@@ -90,6 +91,7 @@ function AuthReg()
                 {/*<InputField ref={input1} placeholder="Вводи почту, дикле"/>*/}
                 {/*<InputField ref={input2} placeholder="Вводи пароль, дикле"/>*/}
                 <LoginButton input1={input1} input2={input2}/>
+                <AvatarUpload/>
                 {/*<RegButton input1={input1} input2={input2}/>*/}
 
                 {/*<button onClick={handleGetValue}>Получить значение</button>*/}

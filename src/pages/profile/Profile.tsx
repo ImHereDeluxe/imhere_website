@@ -10,6 +10,7 @@ import {MinusPokimon} from "../auth-reg/elements/features/minus-pokimon";
 import {getProfileState} from "../../states/ProfileState.ts";
 import {UserService} from "../../data/entities/user/service/UserService.ts";
 import {useDispatch} from "react-redux";
+import {AvatarUpload} from "./elements/features/avatar-upload";
 
 function Profile() {
 
@@ -64,6 +65,7 @@ function Profile() {
             <MinusPokimon/>
             <Link to="/main">Вернуть как было, в жопе мыло</Link>
             <Link to="/search">Выйти замуж. ну или зайти, тут кому удобнее</Link>
+            <AvatarUpload/>
         </div>
     );
 }

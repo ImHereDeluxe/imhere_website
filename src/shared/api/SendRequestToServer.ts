@@ -5,7 +5,8 @@ interface FetcherOptions {
     httpMethod?: HttpMethod;
     body?: any;
     headers?: HeadersInit;
-    withCredentials?: boolean; // 👈 Добавлена опция
+    withCredentials?: boolean;
+    isFormData?: boolean; // 👈 новое поле
 }
 
 export const sendRequestToServer = async <T = any>(
@@ -13,14 +14,18 @@ export const sendRequestToServer = async <T = any>(
     options: FetcherOptions = {}
 ): Promise<T | null> => {
     try {
+        const isFormData = options.isFormData ?? false;
+
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}${api}`, {
             method: options.httpMethod || HttpMethod.GET,
-            headers: {
-                "Content-Type": "application/json",
-                ...(options.headers || {}),
-            },
-            body: options.body ? JSON.stringify(options.body) : undefined,
-            credentials: options.withCredentials ? "include" : "same-origin", // 👈 здесь
+            headers: isFormData
+                ? undefined // fetch сам установит Content-Type для FormData
+                : {
+                    "Content-Type": "application/json",
+                    ...(options.headers || {}),
+                },
+            body: isFormData ? options.body : options.body ? JSON.stringify(options.body) : undefined,
+            credentials: options.withCredentials ? "include" : "same-origin",
         });
 
         if (!response.ok) {
@@ -28,11 +33,9 @@ export const sendRequestToServer = async <T = any>(
         }
 
         const data = await response.json();
-        console.log("[FETCH] response body:", data); // 👈 Вот это главное
+        console.log("[FETCH] response body:", data);
 
-        console.log(response);
-
-        return await data;
+        return data;
     } catch (error) {
         console.error("Ошибка в fetcher:", error);
         return null;

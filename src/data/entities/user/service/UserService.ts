@@ -1,7 +1,8 @@
 import {sendRequestToServer} from "../../../../shared/api/SendRequestToServer.ts";
 import {API} from "../../../../shared/api/API.ts";
 import { Dispatch } from "redux";
-import {setUser} from "../../../redux/slices/UserSlice.ts";
+import {setUser, updateUser} from "../../../redux/slices/UserSlice.ts";
+import {HttpMethod} from "../../../../shared/api/HttpMethod.ts";
 
 
 export class UserService {
@@ -15,7 +16,26 @@ export class UserService {
                     description: data.description,
                     birthday: data.birthday,
                     sex: data.sex,
+                    link_to_avatar: data.link_to_avatar,
                 }));
+            }
+        })();
+    }
+
+    static uploadAvatar(dispatch: Dispatch, file: File) {
+        (async () => {
+            const formData = new FormData();
+            formData.append("image", file);
+
+            const result = await sendRequestToServer<{ url: string }>(API.PUT_AVATAR, {
+                httpMethod: HttpMethod.PUT,
+                body: formData,
+                withCredentials: true,
+                isFormData: true,
+            });
+
+            if (result?.url) {
+                dispatch(updateUser({ link_to_avatar: result.url }));
             }
         })();
     }

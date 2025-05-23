@@ -12,6 +12,11 @@ export function createGenericSlice<T>(name: string) {
             setValue: (_state, action: PayloadAction<T>) => {
                 return { value: action.payload };
             },
+            updateValue: (state, action: PayloadAction<Partial<T>>) => {
+                if (state.value) {
+                    Object.assign(state.value, action.payload);
+                }
+            },
         },
     });
 
