@@ -27,7 +27,7 @@ export class UserService {
             const formData = new FormData();
             formData.append("image", file);
 
-            const result = await sendRequestToServer<{ url: string }>(API.PUT_AVATAR, {
+            const result = await sendRequestToServer(API.PUT_AVATAR, {
                 httpMethod: HttpMethod.PUT,
                 body: formData,
                 withCredentials: true,
