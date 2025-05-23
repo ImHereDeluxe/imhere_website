@@ -33,6 +33,7 @@ export const sendRequestToServer = async <T = any>(
         console.log("OK 2");
 
         console.log(response);
+        console.log("OK между прочим");
 
         const contentType = response.headers.get("Content-Type");
 
