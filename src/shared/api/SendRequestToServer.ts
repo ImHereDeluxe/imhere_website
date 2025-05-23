@@ -14,6 +14,8 @@ export const sendRequestToServer = async <T = any>(
     options: FetcherOptions = {}
 ): Promise<T | null> => {
     try {
+        console.log("OK 1");
+
         const isFormData = options.isFormData ?? false;
 
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}${api}`, {
@@ -28,9 +30,13 @@ export const sendRequestToServer = async <T = any>(
             credentials: options.withCredentials ? "include" : "same-origin",
         });
 
+        console.log("OK 2");
+
         if (!response.ok) {
             throw new Error(`Fetch error: ${response.status}`);
         }
+
+        console.log("OK 3");
 
         const data = await response.json();
         console.log("[FETCH] response body:", data);
