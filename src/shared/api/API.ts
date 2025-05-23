@@ -13,7 +13,7 @@ export enum API
     //Профиль
 
     GET_PROFILE = "/profile/me",
-    PUT_AVATAR = "/avatar/upload/me",
+    PUT_AVATAR = "/profile/avatar/upload/me",
 
     //Поиск
     GET_SEARCH = "/search",
