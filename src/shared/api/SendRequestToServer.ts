@@ -32,6 +32,19 @@ export const sendRequestToServer = async <T = any>(
 
         console.log("OK 2");
 
+        console.log(response);
+
+        const contentType = response.headers.get("Content-Type");
+
+        if (contentType && contentType.includes("application/json")) {
+            const data = await response.json();
+            return data;
+        } else {
+            console.warn("Ответ не JSON. status:", response.status);
+            return null;
+        }
+
+
         if (!response.ok) {
             throw new Error(`Fetch error: ${response.status}`);
         }
