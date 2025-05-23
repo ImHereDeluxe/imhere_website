@@ -50,6 +50,20 @@ function Profile() {
             {profileState.user ? (
                 <div>
                     <h2>👤 Профиль пользователя:</h2>
+
+
+                    {profileState.user.link_to_avatar ? (
+                        <div>
+                            <img
+                                src={profileState.user.link_to_avatar}
+                                alt="Аватар"
+                                style={{ width: "150px", height: "150px", borderRadius: "50%", objectFit: "cover" }}
+                            />
+                        </div>
+                    ) : (
+                        <p>Аватар не загружен</p>
+                    )}
+
                     <p><strong>Ник:</strong> {profileState.user.nickname}</p>
                     <p><strong>Статус:</strong> {profileState.user.status}</p>
                     <p><strong>Описание:</strong> {profileState.user.description}</p>
