@@ -7,8 +7,10 @@ services:
     restart: unless-stopped
     networks:
       - imhere-network
-    expose:
-      - "80"
+    ports:
+      - "80:80"
+    #expose:
+    #  - "80"
 
 networks:
   imhere-network:
