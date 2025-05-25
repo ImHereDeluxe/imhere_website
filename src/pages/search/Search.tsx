@@ -32,9 +32,9 @@ function Search()
                         <li key={index} style={{ marginBottom: "1em", border: "1px solid #ccc", padding: "1em" }}>
                             <h3>{user.nickname}</h3>
                             <p>{user.description}</p>
-                            {/*{user.link_to_avatar && (*/}
-                            {/*    <img src={user.link_to_avatar} alt="Аватар" style={{ width: 100, height: 100 }} />*/}
-                            {/*)}*/}
+                            {user.link_to_avatar && (
+                                <img src={user.link_to_avatar} alt="Аватар" style={{ width: 100, height: 100 }} />
+                            )}
                   {/*          <div>*/}
                   {/*              <strong>Теги:</strong>{" "}*/}
                   {/*              {user.tags.map(tag => (*/}
