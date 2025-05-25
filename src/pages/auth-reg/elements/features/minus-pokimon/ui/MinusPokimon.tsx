@@ -6,9 +6,9 @@ const MinusPokimon = () => {
 
     const dispatch = useDispatch();
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
 
-        PokimonService.minusPokimon();
+        await PokimonService.minusPokimon();
         //PokimonService.addPokimon();
         PokimonService.updatePokimon(dispatch);
 

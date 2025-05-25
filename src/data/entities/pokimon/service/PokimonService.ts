@@ -15,14 +15,14 @@ export class PokimonService {
         })();
     }
 
-    static addPokimon() {
-        void sendRequestToServer(API.ADD_POKIMON, {
+    static async addPokimon() {
+        await sendRequestToServer(API.ADD_POKIMON, {
             httpMethod: HttpMethod.POST,
         });
     }
 
-    static minusPokimon() {
-        void sendRequestToServer(API.MINUS_POKIMON, {
+    static async minusPokimon() {
+        await sendRequestToServer(API.MINUS_POKIMON, {
             httpMethod: HttpMethod.POST,
             withCredentials: true
         });
