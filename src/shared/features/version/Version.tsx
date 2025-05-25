@@ -5,7 +5,7 @@ import './Version.css';
 const Version = () => {
     return (
         <div className="version-label">
-            v1.0.0
+            pre-tiny-alpha-mama-papa-huy-version v0.0.001
         </div>
     );
 };
