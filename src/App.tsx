@@ -4,6 +4,7 @@ import Home from "./pages/home/Home.tsx";
 import AuthReg from "./pages/auth-reg/AuthReg.tsx";
 import Profile from "./pages/profile/Profile.tsx";
 import Search from "./pages/search/Search.tsx";
+import Version from "./shared/features/version/Version.tsx";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                 <Route path="/profile" element={<Profile/>} />
                 <Route path="/search" element={<Search/>} />
             </Routes>
+            <Version/>
         </Router>
     );
 }
