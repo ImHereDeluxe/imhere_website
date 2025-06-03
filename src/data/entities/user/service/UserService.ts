@@ -29,9 +29,10 @@ export class UserService {
             nickname: nickname,
             status: status,
             description: description,
-            birthday: birthday, // предполагается, что строка в формате "yyyy-mm-dd"
-            sex: sex,           // строка: "MALE" | "FEMALE" — должно совпадать с enum `Sex` на бэке
+           // birthday: birthday, // предполагается, что строка в формате "yyyy-mm-dd"
+           // sex: sex,           // строка: "MALE" | "FEMALE" — должно совпадать с enum `Sex` на бэке
         };
+        console.log(`nicknameValue: ${birthday} ${sex}`);
 
         await sendRequestToServer(API.EDIT_PROFILE,{
             httpMethod: HttpMethod.POST,
