@@ -37,7 +37,6 @@ export class UserService {
             httpMethod: HttpMethod.POST,
             body: body,
             withCredentials: true,
-            isFormData: true,
         });
     }
 
