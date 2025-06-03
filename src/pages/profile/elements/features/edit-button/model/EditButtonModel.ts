@@ -3,6 +3,7 @@
 import { IInputField } from "@src/shared/features/input-field/InputField.tsx";
 import React from "react";
 import {UserService} from "@src/data/entities/user/service/UserService.ts";
+import {useDispatch} from "react-redux";
 //import {useDispatch} from "react-redux";
 //import { sendRequestToServer } from "../../../../../../shared/api/SendRequestToServer.ts";
 ////import { API } from "../../../../../../shared/api/API.ts";
@@ -17,7 +18,7 @@ export function useEditHandler(
 ) {
    // const navigate = useNavigate();
 
-  //  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const editHandler = async () => {
 
@@ -31,6 +32,7 @@ export function useEditHandler(
         console.log(`statusValue: ${statusValue}`);
 
         await UserService.editUserProfile(nicknameValue, statusValue, descriptionValue, birthdayValue, sexValue);
+        UserService.updatePUser(dispatch);
 
         // const user = {
         //     email: login,
