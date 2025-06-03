@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
-
-import {sendRequestToServer} from "../../shared/api/SendRequestToServer.ts";
-import {HttpMethod} from "../../shared/api/HttpMethod.ts";
-import {API} from "../../shared/api/API.ts";
-import {MinusPokimon} from "../auth-reg/elements/features/minus-pokimon";
-import {getProfileState} from "../../states/ProfileState.ts";
-import {UserService} from "../../data/entities/user/service/UserService.ts";
+//import EditProfile from "@pages/profile/elements/widgets/EditProfile.tsx";
+//import EditProfile from "@scr/pages/profile/elements/widgets/EditProfile.tsx"
+import {sendRequestToServer} from "@src/shared/api/SendRequestToServer";
+import {HttpMethod} from "@src/shared/api/HttpMethod.ts";
+import {API} from "@src/shared/api/API.ts";
+import {MinusPokimon} from "@src/pages/auth-reg/elements/features/minus-pokimon";
+import {getProfileState} from "@src/states/ProfileState.ts";
+import {UserService} from "@src/data/entities/user/service/UserService.ts";
 import {useDispatch} from "react-redux";
-import {AvatarUpload} from "./elements/features/avatar-upload";
+import {AvatarUpload} from "@src/pages/profile/elements/features/avatar-upload";
+import EditProfile from "@pages/profile/elements/widgets/EditProfile.tsx";
 
 function Profile() {
 
@@ -85,6 +86,8 @@ function Profile() {
             <Link to="/main">Вернуть как было, в жопе мыло</Link>
             <Link to="/search">Выйти замуж. ну или зайти, тут кому удобнее</Link>
             <AvatarUpload/>
+
+            <EditProfile/>
         </div>
     );
 }

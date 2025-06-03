@@ -24,7 +24,7 @@ import {AvatarUpload} from "../profile/elements/features/avatar-upload";
 function AuthReg()
 {
     const input1 = useRef<IInputField>(null);
-   const input2 = useRef<IInputField>(null);
+    const input2 = useRef<IInputField>(null);
 
     const dispatch = useDispatch();
     const authRegState=getAuthRegState();

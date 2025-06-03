@@ -23,6 +23,24 @@ export class UserService {
     }
 
 
+    static async editUserProfile(nickname: string, status: string, description: string, birthday: string, sex: string) {
+
+        const body = {
+            nickname: nickname,
+            status: status,
+            description: description,
+            birthday: birthday, // предполагается, что строка в формате "yyyy-mm-dd"
+            sex: sex,           // строка: "MALE" | "FEMALE" — должно совпадать с enum `Sex` на бэке
+        };
+
+        await sendRequestToServer(API.EDIT_PROFILE,{
+            httpMethod: HttpMethod.PUT,
+            body: body,
+            withCredentials: true,
+            isFormData: true,
+        });
+    }
+
 
     static uploadAvatar(dispatch: Dispatch, file: File) {
         (async () => {
