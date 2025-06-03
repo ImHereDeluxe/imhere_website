@@ -34,7 +34,7 @@ export class UserService {
         };
 
         await sendRequestToServer(API.EDIT_PROFILE,{
-            httpMethod: HttpMethod.PUT,
+            httpMethod: HttpMethod.POST,
             body: body,
             withCredentials: true,
             isFormData: true,
