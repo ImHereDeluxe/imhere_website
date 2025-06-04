@@ -9,7 +9,9 @@ export class PokimonService {
     static updatePokimon(dispatch: Dispatch) {
         (async () => {
             const data = await sendRequestToServer(API.GET_POKIMON);
-            if (data && data.pokimonCount) {
+
+            if (data) {
+                //console.log(data.pokimonCount);
                 dispatch(setPokimon({value:data.pokimonCount}));
             }
         })();
