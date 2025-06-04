@@ -12,4 +12,14 @@ export default defineConfig({
 
     },
   },
+  // server: {
+  //   //https: {}, // ← Вместо https: true
+  //   proxy: {
+  //     '/api': {
+  //       target: 'https://imhere.space',
+  //       changeOrigin: true,
+  //       secure: true,
+  //     }
+  //   }
+  // }
 })
