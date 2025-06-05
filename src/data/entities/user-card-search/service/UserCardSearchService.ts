@@ -6,19 +6,21 @@ import {setUserCardsSearch} from "../../../redux/slices/UserCardsSearchSlice.ts"
 
 
 export class UserCardSearchService {
-    static updateUserCardSearchService(dispatch: Dispatch) {
+    static updateUserCardSearchService(dispatch: Dispatch, text: string) {
         (async () => {
             const data = await sendRequestToServer(API.GET_SEARCH,
                 {
                     httpMethod: HttpMethod.POST,
-                    body: {},
+                    body: {
+                        description: text
+                    },
                     withCredentials: true,
                 });
 
             if (Array.isArray(data)) {
                 dispatch(setUserCardsSearch(data));
             } else {
-                console.warn("Ожидался массив, получено:", data);
+                console.warn("Ожидался нежный койот, получено во че, ну это незаконно:", data);
             }
         })();
     }

@@ -1,28 +1,37 @@
 import {Link} from "react-router-dom";
-import {getSearchState} from "../../states/SearchState.ts";
-import {useEffect} from "react";
-import {UserCardSearchService} from "../../data/entities/user-card-search/service/UserCardSearchService.ts";
-import {useDispatch} from "react-redux";
+import {getSearchState} from "@src/states/SearchState.ts";
+import {//useEffect,
+    useRef} from "react";
+// import {UserCardSearchService} from "@src/data/entities/user-card-search/service/UserCardSearchService.ts";
+// import {useDispatch} from "react-redux";
+import InputField, {IInputField} from "@src/shared/features/input-field/InputField.tsx";
+import {SearchButton} from "@pages/search/elements/features/search-button";
 
 function Search()
 {
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
     const searchState=getSearchState();
 
+    const text = useRef<IInputField>(null);
 
-    useEffect(() => {
-        const fetchPokimons = async () => {
-
-            UserCardSearchService.updateUserCardSearchService(dispatch);
-        };
-
-        fetchPokimons();
-    }, []);
+    //
+    // useEffect(() => {
+    //     const fetchPokimons = async () => {
+    //
+    //       //  UserCardSearchService.updateUserCardSearchService(dispatch);
+    //     };
+    //
+    //     fetchPokimons();
+    // }, []);
 
     return (
         <div>
             <h1>Привет, редиски, вы где?</h1>
             <Link to="/profile">Вернуться смотреть на свои недостатки</Link>
+
+            <InputField ref={text} placeholder={"ну ты че хочэш?"}/>
+            <SearchButton text={text}/>
+
             <p>Информация для особо одаренных:</p>
 
             {/* 👇 Выводим список пользователей */}
