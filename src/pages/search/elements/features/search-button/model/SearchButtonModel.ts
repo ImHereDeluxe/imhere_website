@@ -5,6 +5,7 @@ import React from "react";
 //import {UserService} from "@src/data/entities/user/service/UserService.ts";
 import {useDispatch} from "react-redux";
 import {UserCardSearchService} from "@src/data/entities/user-card-search/service/UserCardSearchService.ts";
+import {useNavigate} from "react-router-dom";
 //import {useDispatch} from "react-redux";
 //import { sendRequestToServer } from "../../../../../../shared/api/SendRequestToServer.ts";
 ////import { API } from "../../../../../../shared/api/API.ts";
@@ -13,9 +14,10 @@ import {UserCardSearchService} from "@src/data/entities/user-card-search/service
 export function useSearchHandler(
     text: React.RefObject<IInputField | null>,
 ) {
-   // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
+
 
     const searchHandler = async () => {
 
@@ -23,23 +25,10 @@ export function useSearchHandler(
 
         console.log(`textValue: ${text}`);
 
-        await UserCardSearchService.updateUserCardSearchService(dispatch, textValue);
-        //UserService.updatePUser(dispatch);
+        await UserCardSearchService.updateUserCardSearchService(dispatch, textValue, navigate);
 
-        // const user = {
-        //     email: login,
-        //     password: password,
-        // };
-        //
-        // const data = await sendRequestToServer(API.AUTHORIZATION, {
-        //     httpMethod: HttpMethod.POST,
-        //     body: user,
-        // });
-        //
-        // if (data) {
-        //     console.log(`Удалось акститься: `, data);
-        //     navigate("/profile");
-        // }
+
+
     };
 
     return searchHandler;

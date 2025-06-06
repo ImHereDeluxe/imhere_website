@@ -3,6 +3,7 @@ import {API} from "../../../../shared/api/API.ts";
 import { Dispatch } from "redux";
 import {setUser, updateUser} from "../../../redux/slices/UserSlice.ts";
 import {HttpMethod} from "../../../../shared/api/HttpMethod.ts";
+import {NavigateFunction} from "react-router-dom";
 
 
 export class UserService {
@@ -23,7 +24,7 @@ export class UserService {
     }
 
 
-    static async editUserProfile(nickname: string, status: string, description: string, birthday: string, sex: string) {
+    static async editUserProfile(nickname: string, status: string, description: string, birthday: string, sex: string, navigate: NavigateFunction) {
 
         const body = {
             nickname: nickname,
@@ -34,11 +35,26 @@ export class UserService {
         };
         console.log(`nicknameValue: ${birthday} ${sex}`);
 
-        await sendRequestToServer(API.EDIT_PROFILE,{
-            httpMethod: HttpMethod.POST,
-            body: body,
-            withCredentials: true,
-        });
+        try {
+            await sendRequestToServer(API.EDIT_PROFILE, {
+                httpMethod: HttpMethod.POST,
+                body: body,
+                withCredentials: true,
+            });
+
+            console.log('Профиль успешно обновлён');
+
+        } catch (error) {
+            console.error('Ошибка при обновлении профиля:', error);
+
+            navigate('/pusdos');
+        }
+
+        // await sendRequestToServer(API.EDIT_PROFILE,{
+        //     httpMethod: HttpMethod.POST,
+        //     body: body,
+        //     withCredentials: true,
+        // });
     }
 
 
