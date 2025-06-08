@@ -1,0 +1,17 @@
+#profile-sidebar {
+  background-color: #1b1b1b;
+  overflow: hidden;
+  width: 25rem;
+  height: 100vh;
+}
+
+#color-overlay {
+  position: relative;
+  top: 20rem;
+  left: -20rem;
+  background-color: purple;
+  border-radius: 50%;
+  filter: blur(12rem);
+  height: 35rem;
+  width: 35rem;
+}
